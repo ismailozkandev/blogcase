@@ -5,13 +5,18 @@
 Sırasıyla aşağıda ki komutları çalıştırın:
 
 composer update
+
 php artisan migrate
+
 php artisan
+
 php artisan db:seed --class=UserSeeder
 
 ## API
 
 ### Kullanıcı Kayıt işlemi
+
+Parametreler:
 
 name
 
@@ -24,6 +29,8 @@ POST /api/register
 ```
 
 ### Kullanıcı Giriş işlemi
+
+Parametreler:
 
 name
 
@@ -55,6 +62,8 @@ POST /api/login
 
 
 ### Blog Listeleme
+
+Parametreler:
 
 id
 
@@ -92,6 +101,8 @@ GET /api/blog
 
 ### Belirli İçeriği Görünteleme
 
+Parametreler:
+
 id
 
 title
@@ -105,6 +116,8 @@ POST /api/blog/{id}
 ```
 
 ### Yeni Yazı Ekleme
+
+Parametreler:
 
 title
 
@@ -128,7 +141,7 @@ PUT /api/blog/{id}
 
 ### Blog içeriğini kaldırma
 
-İstekler:
+Parametreler:
 
 Blog id
 
@@ -140,7 +153,7 @@ DELETE /api/blog/{id}
 
 ### Blog filtreleme
 
-İstekler:
+Parametreler:
 
 category id (opsiyonel)
 
