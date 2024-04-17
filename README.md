@@ -14,7 +14,9 @@ php artisan db:seed --class=UserSeeder
 ### Kullanıcı Kayıt işlemi
 
 name
+
 email
+
 password
 
 ```
@@ -24,7 +26,9 @@ POST /api/register
 ### Kullanıcı Giriş işlemi
 
 name
+
 email
+
 password
 
 ```
@@ -53,19 +57,47 @@ POST /api/login
 ### Blog Listeleme
 
 id
+
 title
+
 detail
+
 created_at
 
 ```
 GET /api/blog
 ```
 
+### Örnek istek:
+```
+{
+	"title": "test1 içerik",
+	"detail": "lorem ipsum",
+	"category": 1,
+}
+```
+
+
+### Örnek yanıt:
+```
+{
+	"id": 1,
+	"title": "test1 içerik",
+	"detail": "lorem ipsum",
+	"category": 1,
+	"user_id": "1",
+	"created_at": "2024-04-17T10:00:00.000000Z",
+}
+```
+
 ### Belirli İçeriği Görünteleme
 
 id
+
 title
+
 detail
+
 created_at
 
 ```
@@ -75,8 +107,11 @@ POST /api/blog/{id}
 ### Yeni Yazı Ekleme
 
 title
+
 detail
+
 categories
+
 status
 
 ```
@@ -93,8 +128,63 @@ PUT /api/blog/{id}
 
 ### Blog içeriğini kaldırma
 
-id
+İstekler:
+
+Blog id
 
 ```
 DELETE /api/blog/{id}
+```
+
+
+
+### Blog filtreleme
+
+İstekler:
+
+category id (opsiyonel)
+
+tag id (opsiyonel)
+
+```
+POST /api/postblogfilter
+```
+
+### Örnek istek:
+```
+{
+	"cat": "1",
+	"tag": "2",
+}
+```
+
+
+### Örnek yanıt:
+```
+[
+    {
+        "id": 1,
+		"title": "test1 içerik",
+		"detail": "lorem ipsum",
+		"category": 1,
+		"user_id": "1",
+		"created_at": "2024-04-17T10:00:00.000000Z",
+    },
+    {
+        "id": 2,
+		"title": "test2 içerik",
+		"detail": "lorem ipsum",
+		"category": 1,
+		"user_id": "1",
+		"created_at": "2024-04-17T10:00:00.000000Z",
+    },
+    {
+        "id": 2,
+		"title": "test2 içerik",
+		"detail": "lorem ipsum",
+		"category": 1,
+		"user_id": "1",
+		"created_at": "2024-04-17T10:00:00.000000Z",
+    }
+]
 ```
